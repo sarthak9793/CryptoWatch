@@ -28,11 +28,11 @@ export default function SignIn(){
             <div className="flex flex-col gap-y-9">
                 <div className="flex flex-col">
                     <label htmlFor="email">Email</label>
-                    <input type="text" id="email" className="shadow-xl rounded-full border border-input py-2 px-4" value={formData.email} name="email" onChange={handleChange} />
+                    <input type="text" id="email" className="bg-primary shadow-xl rounded-full border border-input py-2 px-4" value={formData.email} name="email" onChange={handleChange} />
                 </div>
                 <div className="flex flex-col">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" className="shadow-xl rounded-full border border-input py-2 px-4" value={formData.password} name="password" onChange={handleChange} />
+                    <input type="password" id="password" className="bg-primary shadow-xl rounded-full border border-input py-2 px-4" value={formData.password} name="password" onChange={handleChange} />
                 </div>
                 <div className="flex flex-col gap-y-4">
                     <button className="bg-button rounded-full text-btnText py-3">

@@ -14,7 +14,7 @@ export default function Account() {
       setWatchList(await getWatchList());
     };
     gettingWatchList();
-
+    
     const getCoins = async () => {
       const coins = await axios.get(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=250&page=1&sparkline=true&locale=en"
@@ -23,6 +23,7 @@ export default function Account() {
       setCoins(coins.data);
     };
     getCoins();
+  
   }, []);
 
   useEffect(() => {
@@ -41,6 +42,8 @@ export default function Account() {
         handleSignOut()
         navigate("/")
     }
+  
+  
 
   return (
     <div>
@@ -56,9 +59,14 @@ export default function Account() {
 
       <div className="rounded-div mt-6">
         <div className="font-bold text-2xl py-4">Your Watch List</div>
-        {watchList.length === 0 && (
+        {!watchList && (
           <div className="rounded-div min-h-[384px] flex justify-center items-center">
             <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        )}
+        {watchList.length === 0 && (
+          <div className="rounded-div min-h-[384px] flex justify-center items-center">
+            You don't have any coins saved. Please save a coin to add it to your watch list.
           </div>
         )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-6">
